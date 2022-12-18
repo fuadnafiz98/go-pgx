@@ -1,0 +1,13 @@
+version: "3.1"
+services:
+  db:
+    image: postgres:15.1
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: fuad1234
+      POSTGRES_USER: fuad
+      POSTGRES_DB: test-db
+    volumes:
+      - ./docker-data/:/var/lib/postgresql/data
+    ports:
+      - 5432:5432
