@@ -62,8 +62,8 @@ CREATE TABLE IF NOT EXISTS hosting (
   hosting_id SERIAL PRIMARY KEY,
   hosting_name varchar(2048) NOT NULL,
 
-  host_admin_id int,
-  CONSTRAINT fk_host_admin FOREIGN KEY(host_admin_id) REFERENCES hosting_admin(hosting_admin_id),
+  hosting_admin_id int,
+  CONSTRAINT fk_hosting_admin FOREIGN KEY(hosting_admin_id) REFERENCES hosting_admin(hosting_admin_id),
 
   created_at timestamp NOT NULL DEFAULT NOW(),
   updated_at timestamp NOT NULL DEFAULT NOW()
@@ -87,9 +87,6 @@ CREATE TABLE IF NOT EXISTS blog (
 
   blog_website_id int,
   CONSTRAINT fk_blog_website FOREIGN KEY(blog_website_id) REFERENCES website(website_id),
-
-  blog_hosting_id int,
-  CONSTRAINT fk_blog_hosting FOREIGN KEY(blog_hosting_id) REFERENCES hosting(hosting_id),
 
   blog_created_at timestamp NOT NULL DEFAULT NOW(),
   blog_updated_at timestamp NOT NULL DEFAULT NOW()
